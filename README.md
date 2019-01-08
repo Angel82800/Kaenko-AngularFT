@@ -1,4 +1,6 @@
-->![Angular 5+ Frontend](./imgs/angular.png)<-
+<p align="center">
+  <img src="./imgs/angular.png"/>
+</p>
 # kaenko
 
 This project is built by Angular CLI 5.2.0.
