@@ -1,0 +1,253 @@
+<div class="main-wrap">
+  <div class="header-wrap">
+    <div class="logo-wrap">
+      <div>
+         <div class="logo">
+          <object data="assets\svg\Logo.svg" type="image/svg+xml">
+          </object>
+         </div>
+      </div>
+     <div class="dropdawn-wrap dropdawn-wrap-lang">
+      <button (click)="showLangLarge = !showLangLarge" class="button button-lang" class="button button-lang">
+        <span>
+          {{selectedLang}}
+        </span>
+        <span *ngIf="showLangLarge">
+            <div class="w-icon-dropdown-toggle rotated"></div>
+        </span>
+        <span *ngIf="!showLangLarge">
+            <div class="w-icon-dropdown-toggle"></div>
+        </span>
+      </button>
+      <div *ngIf="showLangLarge" class="dropdown-list w-dropdown-list w--open">
+        <div class="dropdown-inner">
+          <span *ngFor="let item of langs; let i = index">
+              <a *ngIf="selectedLang !== item.key.toUpperCase()" [ngClass]="{'dl-top': i === 0}" (click)="changeLang(item.key)" class="dropdown-link  w-dropdown-link">
+            {{ item.title}}
+            </a>
+
+          </span>
+
+          <div class="dropdown-grad-overlay"></div>
+        </div>
+      </div>
+     </div>
+    </div>
+    <div class="user-logo">
+      <div class="user-img">
+        <div>
+          <img src="{{profile_image}}" alt="" *ngIf="profile_image">
+        </div>
+        <span class="circle-wrap" *ngIf="userinfo">
+            <svg *ngIf="userinfo.is_id_verified" class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 5.2 16.7-16.8"/></svg>
+            <svg *ngIf="!userinfo.is_id_verified" class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="uncheckmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M17 17l20 23"/><path class="checkmark__check" fill="none" d="M17 40l20 -23"/></svg>
+        </span>
+        <span class="profile-username" *ngIf="userinfo">{{userinfo.username}}</span>
+        <div class="dropdawn-wrap" style="margin-left:10px;">
+          <button (click)="showDropdawnUser = !showDropdawnUser" class="user-name button">
+         <span *ngIf="user">
+                {{user.user.username}}
+              </span>
+            <span *ngIf="showDropdawnUser">
+                <div class="w-icon-dropdown-toggle rotated"></div>
+            </span>
+            <span *ngIf="!showDropdawnUser">
+                <div class="w-icon-dropdown-toggle"></div>
+            </span>
+          </button>
+          <div *ngIf="showDropdawnUser" class="dropdawn dropdawn-user">
+                <button class="button border-btn" (click)="go('/k-points')" >
+                  <img style="width: 23px; margin-right: 10px;" src="assets\img\VectorSmartObject.png" alt="">
+                  <span class="valuea-k-points">0</span> K-Points
+                </button>
+                <button class="button border-btn" (click)="uploadImageDlg()">
+                  <i class="far fa-images icon-images"></i>
+                  {{ 'HEADER.UPLOAD' | translate }}
+                  <input type="file" (change)="fileChange($event)" placeholder="Upload file" accept=".jpg, .png, .jpeg" id="profile-image-upload" style="display: none;">
+                </button>
+                <button class="button">
+                  <i class="far fa-comments icon-comments"></i>
+                  {{ 'HEADER.HELP' | translate }}
+                </button>
+                <button class="button log-out" (click)="logout()">
+                  <i class="fas fa-power-off icon-power-off"></i>
+                  {{ 'HEADER.LOGOUT' | translate }}
+                </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+ <div class="header-wrap-response" [style.height.px]="path === '/home' || path === '/profile' || path == '/k-points' || path == '/knko' ? '166' : '51'">
+      <div *ngIf="path == '/home' || path == '/profile' || path == '/k-points' || path == '/knko' " class="home-wrap-response">
+      <div class="response-head">
+
+            <div class="logo-wrap">
+                <div>
+                   <div class="logo">
+                    <object data="assets\svg\Logo-mobil.svg" type="image/svg+xml">
+
+                    </object>
+                   </div>
+                </div>
+               <div class="dropdawn-wrap dropdawn-wrap-lang" [ngClass]="{'hide' : navigations}">
+                <button (click)="showLangLarge = !showLangLarge" class="button button-lang" class="button button-lang">
+                  <span>
+                    EN
+                  </span>
+                    <span *ngIf="showLangLarge">
+                        <div class="w-icon-dropdown-toggle rotated"></div>
+                    </span>
+                    <span *ngIf="!showLangLarge">
+                        <div class="w-icon-dropdown-toggle"></div>
+                    </span>
+                </button>
+                <div *ngIf="showLangLarge" class="dropdown-list w-dropdown-list w--open">
+                  <div class="dropdown-inner"><a href="fr.html" class="dropdown-link dl-top w-dropdown-link">Français</a><a href="pt.html" class="dropdown-link w-dropdown-link">Português</a><a href="es.html" class="dropdown-link w-dropdown-link">Español</a><a href="ru.html" class="dropdown-link w-dropdown-link">русский</a><a href="ar.html" class="dropdown-link w-dropdown-link">عربى</a><a href="jp.html" class="dropdown-link w-dropdown-link">日本語</a><a href="kr.html" class="dropdown-link w-dropdown-link">한국어</a><a href="cn.html" class="dropdown-link dl-bottom w-dropdown-link">中文</a>
+                    <div class="dropdown-grad-overlay"></div>
+                  </div>
+                </div>
+               </div>
+              </div>
+            <div class="burger-wrap" (click)="navigations = !navigations" [ngClass]="{'burger-active': navigations}">
+                <i class="fas fa-bars"></i>
+            </div>
+      </div>
+      <div class="user-logo" >
+        <div class="user-img">
+          <div>
+            <img src="{{profile_image}}" alt="" *ngIf="profile_image">
+          </div>
+          <span class="some-circle">
+            <img src="assets\img\1th-line.png" alt="">
+            <img src="assets\img\2th-line.png" alt="">
+            <img src="assets\img\3th-line.png" alt="">
+            <img src="assets\img\4th-line.png" alt="">
+          </span>
+          <span class="circle-wrap">
+                        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52"><circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/><path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/></svg>
+          </span>
+          <div class="dropdawn-wrap" style="margin-left:10px;">
+            <button class="user-name button">
+              <span *ngIf="user">
+                {{user.user.username}}
+              </span>
+              <img class="arrow" src="assets\img\down-arrow.png" alt="">
+            </button>
+          </div>
+        </div>
+      </div>
+      </div>
+     <div *ngIf="path != '/home' && path != '/profile' &&  path != '/k-points' && path != '/knko' " class="referrals-wrap-response">
+         <div class="response-head">
+
+             <div class="logo-wrap">
+                 <div>
+                     <div class="logo">
+                         <object data="assets\svg\Logo-mobil.svg" type="image/svg+xml">
+
+                         </object>
+                     </div>
+                 </div>
+                 <div class="dropdawn-wrap dropdawn-wrap-lang" [ngClass]="{'hide' : navigations}">
+                     <button (click)="showLangLarge = !showLangLarge" class="button button-lang" class="button button-lang">
+                  <span>
+                    EN
+                  </span>
+                         <span *ngIf="showLangLarge">
+                        <div class="w-icon-dropdown-toggle rotated"></div>
+                    </span>
+                         <span *ngIf="!showLangLarge">
+                        <div class="w-icon-dropdown-toggle"></div>
+                    </span>
+                     </button>
+                     <div *ngIf="showLangLarge" class="dropdown-list w-dropdown-list w--open">
+                         <div class="dropdown-inner"><a href="fr.html" class="dropdown-link dl-top w-dropdown-link">Français</a><a href="pt.html" class="dropdown-link w-dropdown-link">Português</a><a href="es.html" class="dropdown-link w-dropdown-link">Español</a><a href="ru.html" class="dropdown-link w-dropdown-link">русский</a><a href="ar.html" class="dropdown-link w-dropdown-link">عربى</a><a href="jp.html" class="dropdown-link w-dropdown-link">日本語</a><a href="kr.html" class="dropdown-link w-dropdown-link">한국어</a><a href="cn.html" class="dropdown-link dl-bottom w-dropdown-link">中文</a>
+                             <div class="dropdown-grad-overlay"></div>
+                         </div>
+                     </div>
+                 </div>
+             </div>
+             <div class="burger-wrap" (click)="navigations = !navigations" [ngClass]="{'burger-active': navigations}">
+                 <i class="fas fa-bars"></i>
+             </div>
+         </div>     </div>
+    </div>
+
+  <div class="menu-wrap-outer menu-wrap-mobil-page" *ngIf="navigations" [@enterAnimation]>
+    <div class="menu-wrap">
+      <div (click)="go('/home')" [ngClass]="{'active-tab': path === '/home'}">
+        <img *ngIf=" path !== '/home'" src="assets\img\Home-inactive.png" alt="">
+        <img *ngIf=" path === '/home'" src="assets\img\Home.png" alt="">
+        {{ 'HEADER.HOME' | translate }}
+      </div>
+      <div (click)="go('/buy-knko')" [ngClass]="{'active-tab': path === '/buy-knko'}">
+        <img *ngIf=" path !== '/buy-knko'" src="assets\img\BUY-KNKO.png" alt="">
+        <img *ngIf=" path === '/buy-knko'" src="assets\img\BUY-KNKO-active.png" alt="">
+        {{ 'HEADER.BYKNKO' | translate }}
+      </div>
+      <div (click)="go('/withdraw')" [ngClass]="{'active-tab': path === '/withdraw'}">
+        <img *ngIf=" path !== '/withdraw'" src="assets\img\WITHDRAW.png" alt="">
+        <img *ngIf=" path === '/withdraw'" src="assets\img\WITHDRAW-active.png" alt="">
+        {{ 'HEADER.WITHDRAW' | translate }}
+      </div>
+      <div (click)="go('/referrals')" [ngClass]="{'active-tab': path === '/referrals'}">
+        <img *ngIf=" path !== '/referrals'" src="assets\img\REFERRALS.png" alt="">
+        <img *ngIf=" path === '/referrals'" src="assets\img\REFERRALS-active.png" alt="">
+        {{ 'HEADER.REFERRALS' | translate }}
+      </div>
+      <div (click)="go('/settings')" [ngClass]="{'active-tab': path === '/settings'}">
+        <img *ngIf=" path !== '/settings'" src="assets\img\SETTINGS.png" alt="">
+        <img *ngIf=" path === '/settings'" src="assets\img\SETTINGS-active.png" alt="">
+        {{ 'HEADER.SETTINGS' | translate }}
+      </div>
+    </div>
+    <div (click)="go('/profile')" class="my-profile" [ngClass]="{'active-tab': path === '/profile'}">
+      <div>
+        {{ 'HEADER.PROFILE' | translate }}
+      </div>
+    </div>
+    <div class="special-buttons-holder btn-group-menu">
+        <a href="#" class="nav-gradient-button w-inline-block button-bot" data-ix="show-whitelist">
+          <div class="grad-button-text">{{ 'HEADER.TOKENS' | translate }}</div>
+        </a>
+        <a href="#" class="nav-gradient-button w-inline-block button-bot"  (click)="logout()">
+          <div class="grad-button-text"> {{ 'HEADER.LOGOUT' | translate }}</div>
+        </a>
+      </div>
+  </div>
+  <div class="menu-wrap-outer menu-wrap-large-page">
+      <div class="menu-wrap">
+        <div (click)="go('/home')" [ngClass]="{'active-tab': path === '/home'}" class="wrap-menu-item">
+          <img *ngIf=" path !== '/home'" src="assets\img\Home-inactive.png" alt="">
+          <img *ngIf=" path === '/home'" src="assets\img\Home.png" alt="">
+          {{ 'HEADER.HOME' | translate }}
+        </div>
+        <div (click)="go('/buy-knko')" [ngClass]="{'active-tab': path === '/buy-knko'}" class="wrap-menu-item">
+          <img *ngIf=" path !== '/buy-knko'" src="assets\img\BUY-KNKO.png" alt="">
+           <img *ngIf=" path === '/buy-knko'" src="assets\img\BUY-KNKO-active.png" alt="">
+           {{ 'HEADER.BYKNKO' | translate }}
+        </div>
+        <div (click)="go('/withdraw')" [ngClass]="{'active-tab': path === '/withdraw'}" class="wrap-menu-item">
+          <img *ngIf=" path !== '/withdraw'" src="assets\img\WITHDRAW.png" alt="">
+           <img *ngIf=" path === '/withdraw'" src="assets\img\WITHDRAW-active.png" alt="">
+           {{ 'HEADER.WITHDRAW' | translate }}
+        </div>
+        <div (click)="go('/referrals')" [ngClass]="{'active-tab': path === '/referrals'}" class="wrap-menu-item">
+          <img *ngIf=" path !== '/referrals'" src="assets\img\REFERRALS.png" alt="">
+           <img *ngIf=" path === '/referrals'" src="assets\img\REFERRALS-active.png" alt="">
+           {{ 'HEADER.REFERRALS' | translate }}
+        </div>
+        <div (click)="go('/settings')" [ngClass]="{'active-tab': path === '/settings'}" class="wrap-menu-item">
+          <img *ngIf=" path !== '/settings'" src="assets\img\SETTINGS.png" alt="">
+           <img *ngIf=" path === '/settings'" src="assets\img\SETTINGS-active.png" alt="">
+           {{ 'HEADER.SETTINGS' | translate }}
+        </div>
+      </div>
+      <div (click)="go('/profile')" class="my-profile" [ngClass]="{'active-tab': path === '/profile'}" class="wrap-menu-item">
+        <div>
+            {{ 'HEADER.PROFILE' | translate }}
+        </div>
+      </div>
+    </div>
+</div>

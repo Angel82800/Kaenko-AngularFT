@@ -1,0 +1,135 @@
+<div class="main-wrap" *ngIf="userinfo">
+  <div class="left-content">
+      <div class="head-response">
+          <div class="left-head-response">
+            <div class="head-value">
+              123 505
+            </div>
+              <div class="knko" routerLink="/knko">
+                  KNKO
+              </div>
+          </div>
+          <div class="right-head-response">
+              <div class="head-value">
+
+              </div>
+              <div class="knko">
+                bibahadid92
+              </div>
+            </div>
+          <div class="right-head-response">
+            <div class="head-value" >
+              <img style="width: 30px;" src="assets\img\VectorSmartObject.png" alt="">
+              1000
+            </div>
+            <div class="knko" routerLink="/k-points" >
+              K-Points
+            </div>
+          </div>
+        </div>
+    <div class="head-inside-left-wrap">
+      <h1 class="main-caption margin ">
+        <span class="mobil-elemtnt"> {{ 'MY_PROFILE.YOU' | translate }} </span> {{ 'MY_PROFILE.Details' | translate }}
+      </h1>
+      <button class="button btn-settings verify-btn">
+        Verify ID
+      </button>
+    </div>
+      <div class="lable padding-left">
+        {{ 'MY_PROFILE.NAME' | translate }}
+      </div>
+      <div class="value padding-left">
+      <!-- {{userinfo['full_name']}} -->
+      <input type="text" [(ngModel)]="userinfo['full_name']" (input)="saveDetail()">
+      </div>
+      <div class="lable padding-left">
+        {{ 'MY_PROFILE.USERNAME' | translate }}
+      </div>
+      <div class="value padding-left">
+        {{userinfo['username']}}
+      </div>
+      <div class="lable padding-left">
+        E-mail*
+      </div>
+      <div class="value padding-left">
+          {{userinfo['email']}}
+      </div>
+      <div class="lable padding-left">
+          {{ 'MY_PROFILE.NATIONALITY' | translate }}
+      </div>
+      <div class="value padding-left">
+        <!-- <img style="width: 35px; margin-right: 10px;" src="assets\img\malarge.png" alt=""> -->
+        <!-- {{userinfo['nationality']}} -->
+        <input type="text" [(ngModel)]="userinfo['nationality']" (input)="saveDetail()">
+      </div>
+      <div class="lable padding-left">
+          {{ 'MY_PROFILE.ETH' | translate }}
+      </div>
+      <div class="input-wrap">
+          <input placeholder="Enter ETH Address" type="text" [(ngModel)]="userinfo['address_eth_wallet']">
+      </div>
+
+  </div>
+  <div class="right-content">
+    <h1 class="main-caption margin-bot-mobil" style="margin-bottom: 52px;">
+        <span class="mobil-elemtnt">{{ 'MY_PROFILE.YOU' | translate }} </span> {{ 'MY_PROFILE.Address' | translate }}
+    </h1>
+    <div class="lable">
+        {{ 'MY_PROFILE.STREET' | translate }}
+      </div>
+      <div class="value">
+      <!-- {{userinfo['address_line']}} -->
+      <input type="text" [(ngModel)]="userinfo['address_line']" (input)="saveAddress()">
+      </div>
+      <div class="flex-box">
+        <div class="margin-ritht-100">
+          <div class="lable">
+              Zip Code*
+            </div>
+            <div class="value">
+              <!-- {{userinfo['zipcode']}} -->
+              <input type="text" [(ngModel)]="userinfo['zipcode']" (input)="saveAddress()">
+            </div>
+        </div>
+        <div>
+          <div class="lable">
+              {{ 'MY_PROFILE.PROVINCE' | translate }}/{{ 'MY_PROFILE.CITY' | translate }}
+            </div>
+            <div class="value">
+              <!-- {{userinfo['city']}} -->
+              <input type="text" [(ngModel)]="userinfo['city']" (input)="saveAddress()">
+            </div>
+        </div>
+      </div>
+
+      <div class="lable">
+          {{ 'MY_PROFILE.COUNTRY' | translate }}
+        </div>
+      <div *ngIf="isloadedcountry" class="value">
+
+          <ng-select [allowClear]="true"
+                      [items]="items"
+                      [active]="selectedItems"
+                      [disabled]="disabled"
+                      (data)="refreshValue($event)"
+                      (selected)="selected($event)"
+                      (removed)="removed($event)"
+                      (typed)="typed($event)"
+                      placeholder="No country selected"
+                      style="width:100%;">
+          </ng-select>
+        </div>
+
+      <div class="button-update-wrap">
+
+      <button class="button btn-settings" (click)="uploadAddressFileDlg()">
+        Upload Address Proof
+      </button>
+      <input type="file" (change)="fileChange($event)" accept=".doc, .docx" id="address-file-input" style="display: none;">
+      </div>
+      <div class="text-bot">
+        {{ 'MY_PROFILE.TEXT_BOT' | translate }}
+      </div>
+  </div>
+</div>
+<app-congratulations *ngIf="showCongratulation"></app-congratulations>

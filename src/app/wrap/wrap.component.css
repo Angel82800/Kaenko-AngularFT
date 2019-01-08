@@ -1,0 +1,11 @@
+.warap-body-content
+{
+  margin: 0 120px;
+}
+
+@media screen and (max-width: 430px) {
+  .warap-body-content
+  {
+    margin: 0 0px;
+  }
+}

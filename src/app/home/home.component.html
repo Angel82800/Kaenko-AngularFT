@@ -1,0 +1,188 @@
+<div class="head-content">
+    <div class="box-top">
+        <p class="head-box">{{ 'HOME.TOTALBALANCE' | translate }}</p>
+        <p class="content-box">
+        {{userBalance['Total balance (wallet amount + bonus)']}}
+        </p>
+        <p class="knko">
+        KNKO
+        </p>
+        <p class="coment">
+        <!-- *based on current token sale price -->
+        </p>
+
+    </div>
+    <div class="box-top">
+        <p class="head-box">{{ 'HOME.ERNED_REFERALS' | translate }}</p>
+        <p class="content-box">
+        {{userBalance['Earned by Referrals (wallet amount)']}}
+        </p>
+        <p class="knko">
+        KNKO
+        </p>
+        <p class="coment">
+        <!-- *based on current token sale price -->
+        </p>
+        <button class="button new-btn"> NEW</button>
+    </div>
+    <div class="box-top" style="margin-right: 0;">
+        <p class="head-box">{{ 'HOME.VALUE_EUR' | translate }}</p>
+        <p class="content-box">
+            € {{userBalance['Current value in EUR ((wallet amount + bonus) * token_sale_price)']}}
+        </p>
+        <p class="knko">
+        <!-- KNKO -->
+        </p>
+        <p class="coment">
+            {{ 'HOME.COMMENT' | translate }}
+        </p>
+        <button class="button new-btn"> NEW</button>
+    </div>
+</div>
+
+    <div class="body-content">
+        <div class="body-content-head">
+            <div class="caption-right">
+                {{ 'HOME.TRANSACTIONS' | translate }}
+            </div>
+            <div class="scroll-wrap">
+            <span (click)="scrollDown()">{{ 'HOME.SCROLL' | translate }}  </span>
+            <img (click)="showSettings = !showSettings" src="assets\img\SETTINGS.png" alt="">
+            <div *ngIf="showSettings" class="dropdawn-settings">
+                <div>
+                Export as xslx
+                </div>
+                <div>
+                Save as PDF
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="caption-row row-table">
+            <div class="column-1">
+                {{ 'HOME.Date' | translate }}
+            </div>
+            <div class="column-2">
+                {{ 'HOME.Type' | translate }}
+            </div>
+            <!-- <div class="column-3">
+                {{ 'HOME.From' | translate }}
+            </div> -->
+            <div class="column-4">
+                {{ 'HOME.Amount' | translate }}
+            </div>
+            <div class="column-5">
+                {{ 'HOME.Status' | translate }}
+            </div>
+            <div class="column-6">
+                {{ 'HOME.Balance' | translate }}
+            </div>
+        </div>
+        <div class="scroll-table-body">
+
+            <div class="no-transactions" *ngIf="isShowNoTrans">
+            There is no transactions to show at the moment.
+            </div>
+
+            <div class="row-table"  *ngFor="let trans of transactionHistory; let i = index">
+                <div class="column-1">
+                    {{trans["transaction_date"]}}
+                </div>
+                <div class="column-2">
+                    {{trans["transaction_type"]}}
+                </div>
+                <!-- <div class="column-3">
+                {{trans["owner"]}}
+                </div> -->
+                <div class="column-4">
+                    <div class="amount-value">
+                        {{trans["transaction_amount"]}} KNKO
+                    </div>
+                </div>
+                <div class="column-5">
+                    <div class="status-value active">
+                    {{trans["transaction_status"]}}
+                    </div>
+                </div>
+                <div class="column-6 blue-style">
+                {{trans["balance"]}} KNKO
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="response-content">
+        <div class="head-response">
+            <div class="left-head-response">
+            <div class="head-value">
+                {{userBalance['Current value in EUR ((wallet amount + bonus) * token_sale_price)']}}
+            </div>
+                <div class="knko" routerLink="/knko">
+                    KNKO
+                </div>
+            </div>
+            <div class="right-head-response">
+                <div class="head-value">
+
+                </div>
+                <div class="knko">
+                bibahadid92
+                </div>
+            </div>
+            <div class="right-head-response">
+            <div class="head-value">
+                <img style="width: 30px;" src="assets\img\VectorSmartObject.png" alt="">
+                0
+            </div>
+            <div class="knko" routerLink="/k-points">
+                K-Points
+            </div>
+        </div>
+    </div>
+    <div class="body-content-response">
+        <div class="scroll-tab">
+        <div>January</div>
+        <div>February</div>
+        <div>March</div>
+        <div>This month</div>
+        <div>All time</div>
+        </div>
+    </div>
+
+    <div  *ngFor="let trans of grouptedHistorytrans; let i = index">
+        <div class="content-response" >
+            <div class="head-content-response">
+            <div class="time-value">
+                {{trans.key}}
+            </div>
+            <div class="knko-wrap-right">
+                KNKO
+                <div class="knko-value-blue-style status-value">
+                123 505
+                </div>
+            </div>
+            </div>
+        </div>
+        <div class="content-response" *ngFor="let item of trans.values; let i = index">
+            <div class="head-content-response" >
+            <div class="time-value">
+                <img style="width: 50px; border-radius: 50%; margin-right: 15px;" src="assets\img\favicon.png" alt="">
+                <div class="knko-value-inside-wrap">
+                <div class="knko-value-inside">
+                    {{item.transaction_amount}} KNKO
+                </div>
+                <div class="time-value-inside">
+                    15:30 . Purchase
+                </div>
+                </div>
+            </div>
+            <div class="knko-wrap-right">
+
+                <div class="knko-value-complited-style status-value">
+                COMPLETED
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>

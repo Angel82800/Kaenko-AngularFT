@@ -1,0 +1,191 @@
+.input-wrap > input, input{
+    margin-top: 20px;
+    border: none;
+    border-bottom: 1px solid #b5c0c5;
+    width: 100%;
+    padding-bottom: 15px;
+    outline: none;
+    margin-top: 40px;
+    font-size: 16px;
+    font-family: "Poppins";
+}
+.input-wrap > input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #d2d6d6;
+    font-size: 18px;
+    font-weight: 200;
+}
+.input-wrap > input::-moz-placeholder { /* Firefox 19+ */
+    color: #d2d6d6;
+    font-size: 18px;
+    font-weight: 200;
+}
+.input-wrap > input:-ms-input-placeholder { /* IE 10+ */
+    color: #d2d6d6;
+    font-size: 18px;
+    font-weight: 200;
+}
+.input-wrap > input:-moz-placeholder { /* Firefox 18- */
+    color: #d2d6d6;
+    font-size: 18px;
+    font-weight: 200;
+}
+.main-wrap{
+    display: flex;
+    margin-top: 20px;
+}
+.button-update-wrap{
+    text-align: right;
+}
+.left-content, .right-content{
+    width: 50%;
+    margin-right: 50px;
+    border: 1px solid #e2e8ee;
+    border-bottom: 5px solid rgba(1, 121, 233, 1);
+    background: white;
+    border-radius: 5px;
+    padding: 25px;
+    padding-top: 30px;
+}
+.right-content{
+    margin-right: 0px;
+}
+.main-caption{
+    margin-top: 0;
+    font-size: 22px;
+    font-weight: 600;
+    color: #0179e7;
+    margin-bottom: 85px;
+}
+.btn-settings{
+    border: 1px solid;
+    color: #0179e9;
+    height: 50px;
+    width: 220px;
+    border-radius: 50px;
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 300;
+}
+.btn-settings:hover, .btn-settings:active{
+    background: #0179e9;
+    color: white;
+}
+.second-caption{
+    font-size: 18px;
+    font-weight: 400;
+    color: #869090;
+}
+.mobil-number-wrap{
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.button-group{
+    margin-top: 15px;
+    display: flex;
+    justify-content: space-around;
+}
+.btn-settings{
+    white-space: nowrap;
+}
+.text-bot{
+    color: #3393ed;
+    padding: 30px;
+    letter-spacing: 0.5px;
+    font-size: 14px;
+    font-weight: 400;
+}
+.head-response{
+    display: none;
+}
+@media screen and (max-width: 980px) {
+    .btn-settings{
+        width: 180px;
+        font-size: 14px;
+    }
+    .main-wrap{
+        flex-flow: column;
+    }
+    .left-content, .right-content{
+        width: 100%;
+        margin-right: 0;
+        border: 0;
+        border-bottom: 0;
+        padding-top: 0;
+        padding: 0;
+    }
+    .main-caption{
+        text-align: left;
+        font-size: 18px;
+        margin-bottom: 0;
+        font-weight: 500;
+        margin-top: 25px;
+    }
+    .head-response{
+        display: flex;
+        justify-content: space-between;
+        padding-left: 40px;
+        padding-right: 40px;
+        align-items: flex-end;
+    }
+    .left-head-response, .right-head-response{
+        display: flex;
+        flex-flow: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .head-value{
+        font-size: 20px;
+        margin-bottom: 6px;
+        margin-top: 24px;
+    }
+    .knko{
+        margin-bottom: 0;
+        text-align: center;
+        color: rgba(164, 171, 181, 1);
+        font-family: 'Poppins';
+        font-size: 15px;
+        margin-bottom: 15px;
+    }
+    .head-value{
+        font-size: 20px;
+        margin-bottom: 6px;
+        margin-top: 24px;
+    }
+    .main-wrap{
+        margin-top: 0;
+    }
+    .second-caption{
+        font-size: 17px;
+    }
+    .text-bot{
+        display: none;
+    }
+    input[type="text"]{
+        -webkit-appearance: none;
+        border-radius: 0;
+    }
+}
+@media screen and (max-width: 500px){
+    .left-content{
+        padding: 0;
+    }
+}
+@media screen and (max-width: 430px) {
+    .head-response{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    div.head-response > div.right-head-response > div.knko{
+        margin-left: 15px;
+    }
+}
+
+.phone-number-input{
+  border-bottom: 0!important;
+}
+
+.phone-number-input:hover, .phone-number-input:focus{
+  border-bottom: 1px solid #b5c0c5!important;
+}

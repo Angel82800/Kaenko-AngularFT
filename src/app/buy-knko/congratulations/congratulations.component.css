@@ -1,0 +1,47 @@
+.main-content{
+    padding-bottom: 115px;
+    border: 1px solid #e2e8ee;
+    border-bottom: 5px solid rgba(1, 121, 233, 1);
+    background: white;
+    border-radius: 5px;
+    padding: 40px;
+    padding-top: 30px;
+    margin-top: 25px;
+}
+.img-wrap{
+    text-align: center;
+    margin-top: 40px;
+}
+.congatulir-wrap{
+    font-weight: 600;
+    text-align: center;
+    color: #4cd966;
+    font-size: 25px;
+    letter-spacing: 1px;
+    margin-top: 30px;
+}
+.bought{
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #a1abb6;
+    margin-top: 10px;
+}
+.earned{
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #a1abb6;
+    margin-top: 10px;
+}
+@media screen and (max-width: 500px){
+    .img-wrap > img{
+        width: 100%;
+    }
+    .main-content{
+        padding: 10px;
+    }
+    .bought, .earned{
+        font-size: 14px;
+    }
+}

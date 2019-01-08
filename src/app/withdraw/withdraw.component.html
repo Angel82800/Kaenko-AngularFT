@@ -1,0 +1,99 @@
+<div class="main-wrap">
+    <div class="left-content">
+      <h1 class="main-caption caption-top-desktop">
+          {{ 'WITHDRAW.WINDROW' | translate }}
+      </h1>
+      <h1 class="main-caption caption-top-respose">
+          {{ 'WITHDRAW.SEND' | translate }}
+        </h1>
+
+        <div class="input-wrap">
+          <span class="lable-input">
+            SEND
+          </span>
+          <input class="input-token" type="text" [(ngModel)]="withdrawdata.withdraw_token">
+          <div class="token-lable-wrap">
+            <span>
+              KNKO
+            </span>
+          </div>
+        </div>
+
+        <div class="down-chervon-wrap">
+          <img src="assets\img\down-chevron.png" alt="">
+          <img src="assets\img\down-chevron2.png" alt="">
+          <img src="assets\img\down-chevron3.png" alt="">
+        </div>
+
+        <h1 class="main-caption main-caption-walelt">
+            {{ 'WITHDRAW.YOUR_WALLET' | translate }}
+        </h1>
+        <div class="input-wrap bot-input">
+            <span class="input-token input-wallet">
+                <input class="input-token input-token-wallet" type="text" placeholder="Enter you ETH Address"  [(ngModel)]="withdrawdata.eth_wallet_address">
+            </span>
+        </div>
+
+        <div class="text-danger" *ngIf="withdrawdata.eth_wallet_address.length < 42 ">The address is not correct. Characters are missing.</div>
+
+       <div class="main-caption-qr">
+        <span style="margin-right: 10px;" *ngIf="withdrawdata.eth_wallet_address.length >= 42" (click)="save_eth()">Save Address</span>
+        <span (click)="changeisqrcode()"> {{ 'WITHDRAW.SCAN' | translate }}</span>
+       </div>
+
+       <div [ngStyle]="isscanqrcodestyle()">
+          <div *ngIf="availableDevices">
+            <select (change)="onDeviceSelectChange($event.target.value)">
+              <option value="" [selected]="!selectedDevice">No Device</option>
+              <option *ngFor="let device of availableDevices" [value]="device.deviceId" [selected]="selectedDevice && device.deviceId === selectedDevice.deviceId">{{ device.label }}</option>
+            </select>
+          </div>
+          <div [hidden]="!hasCameras">
+            <zxing-scanner #scanner class="test-class" start="true" [device]="selectedDevice" (scanSuccess)="handleQrCodeResult($event)"></zxing-scanner>
+            <h2 *ngIf="!this.selectedDevice">No camera selected.</h2>
+          </div>
+
+          <div *ngIf="!hasCameras && hasPermission === true">
+            <h1>Looks like your actual device does not has cameras, or I could no find'em. </h1>
+          </div>
+
+          <div *ngIf="hasPermission === undefined">
+            <h1>Waiting for permissions.</h1>
+            <blockquote>
+              <h2>If your device does not has cameras, no permissions will be asked.</h2>
+            </blockquote>
+          </div>
+          <div *ngIf="hasPermission === false">
+            <h1>You denied the camera permissions, we can't scan anything without it. 😪</h1>
+          </div>
+        </div>
+
+       <div class="text-success" *ngIf="isShowMSG">{{responseData.message}}</div>
+
+        <div class="btn-by-wrap">
+          <button class="button" (click)="confirmWithdraw()">
+              {{ 'WITHDRAW.CONFIRM' | translate }}
+          </button>
+        </div>
+        <p class="text-bot text-bot-response">
+            <span class="warning">{{ 'WITHDRAW.Warning' | translate }}</span>
+            {{ 'WITHDRAW.TEXT_BOT1' | translate }} <b>{{ 'WITHDRAW.Definitive' | translate }}</b>
+            {{ 'WITHDRAW.TEXT_BOT2' | translate }}
+        </p>
+    </div>
+    <div class="right-content">
+      <div class="buying-caption">{{ 'WITHDRAW.SENDING' | translate }}</div>
+      <div class="knko-value-captio">{{withdrawdata.withdraw_token}} KNKO</div>
+      <div class="per-knko-caption">{{ 'WITHDRAW.TO_WALLET' | translate }}</div>
+      <div class="img-group-wrap">
+        <object data="assets\svg\withdraw-inside.svg" type="image/svg+xml">
+
+        </object>
+      </div>
+      <p class="text-bot">
+          <span class="warning">{{ 'WITHDRAW.Warning' | translate }}</span>
+          {{ 'WITHDRAW.TEXT_BOT1' | translate }} <b>{{ 'WITHDRAW.Definitive' | translate }}</b>
+          {{ 'WITHDRAW.TEXT_BOT2' | translate }}
+      </p>
+    </div>
+  </div>

@@ -1,0 +1,64 @@
+<div class="main-wrap">
+    <div class="left-content">
+      <h1 class="main-caption">
+          {{ 'SETTINGS.ChangePassword' | translate }}
+      </h1>
+       <div class="input-wrap">
+          <input type="password" placeholder="Current Password" [(ngModel)]="oldpass">
+       </div>
+       <div class="input-wrap">
+          <input type="password" placeholder="New Password" [(ngModel)]="newpass">
+       </div>
+       <div class="input-wrap">
+          <input type="password" placeholder="Repeat New Password" [(ngModel)]="cnewpass">
+       </div>
+       <div class="text-success" *ngIf="is_shown_msg_pass">
+       <p *ngFor="let erroritem of passwordErrorkeys; let idx = index"><span>{{erroritem}} : </span><span>{{passwordChangeErrors[erroritem]}}</span></p>
+      </div>
+       <div class="button-update-wrap">
+        <button class="button btn-settings" (click)="changePassword()">
+          UPDATE
+        </button>
+       </div>
+    </div>
+    <div class="right-content">
+      <h1 class="main-caption" style="margin-bottom: 52px;">
+          {{ 'SETTINGS.Verification' | translate }}
+      </h1>
+      <p class="second-caption">
+          {{ 'SETTINGS.NUMBER' | translate }}
+      </p>
+      <div class="mobil-number-wrap input-wrap">
+        <input type="text" *ngIf="ng2TelInputOptions"
+          ng2TelInput
+          [ng2TelInputOptions]="ng2TelInputOptions"
+          (hasError)="hasError($event)"
+          (ng2TelOutput)="getNumber($event)"
+          (intlTelInputObject)="telInputObject($event)"
+          (countryChange)="onCountryChange($event)"
+          [(ngModel)]="phone_number"
+          (input)="changePhone()"
+          />
+      </div>
+      <p class="second-caption">
+        {{ 'SETTINGS.CODE' | translate }}
+      </p>
+        <div class="input-wrap">
+          <input style="margin-top: 9px;" type="text" placeholder="Enter code here" [(ngModel)]="code">
+       </div>
+       <div class="text-success" *ngIf="isSentSms">{{resSendSms.messages}}</div>
+       <div class="button-group">
+        <button style="margin-right: 10px;" class="button btn-settings" (click)="sendSMS()">
+          1. GET SMS WITH CODE
+        </button>
+        <button style="margin-left: 10px;" class="button btn-settings" (click)="confirmCode()">
+          2. CONFIRM
+        </button>
+       </div>
+
+       <div class="text-bot">
+          {{ 'SETTINGS.TEXT_BOT' | translate }}
+       </div>
+    </div>
+  </div>
+  <app-congratulations *ngIf="showCongratulation"></app-congratulations>

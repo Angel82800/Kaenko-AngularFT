@@ -1,0 +1,22 @@
+@import '../../node_modules/intl-tel-input/build/css/intlTelInput.css';
+
+.warap-body-content{
+    padding-left: 120px;
+    padding-right: 120px;
+    font-family: 'Poppins';
+}
+@media screen and (max-width: 1180px) {
+    .warap-body-content{
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+}
+@media screen and (max-width: 980px) {
+    .warap-body-content{
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+    .main-wrapper{
+        background: white !important;
+    }
+}

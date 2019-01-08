@@ -1,0 +1,95 @@
+{
+  "HEADER": {
+    "UPLOAD": "Upload Photo",
+    "LOGOUT": "Log Out",
+    "HELP": "Help Center",
+    "HOME": "家",
+    "BYKNKO": "BY KNKO",
+    "WITHDRAW": "收回",
+    "REFERRALS": "REFERRALS",
+    "SETTINGS": "SETTINGS",
+    "PROFILE": "MY PROFILE",
+    "TOKENS": "BUY TOKENS"
+  },
+  "HOME": {
+    "TOTALBALANCE": "TOTAL BALANCE",
+    "ERNED_REFERALS": "ERNED BY REFERALS",
+    "VALUE_EUR": "CURENT VALUE IN EUR*",
+    "COMMENT": "*based on current token sale price",
+    "SCROLL": "SCROLL THE TAB DOWN",
+    "TRANSACTIONS": "RECENT TRANSACTIONS",
+    "Date": "Date",
+    "Type": "Type",
+    "From": "From",
+    "Amount": "Amount",
+    "Status": "Status",
+    "Balance": "Balance"
+  },
+  "BY_KNKO": {
+    "PURCHASE_TOKENS": "PURCHASE KNKO TOKENS",
+    "PayWith": "Pay with",
+    "AddNew": "Add New +",
+    "BUY_NOW": "BUY INSTANTLI NOW",
+    "YOU_BUYING": "YOU ARE BUYING",
+    "PER": "per",
+    "MINIMUM_INVEST": "MINIMUM INVESTMEN",
+    "equivalent": "or equivalent",
+    "TEXT_BOT": "By pressing the button 'PAT NOW', You confirm You have read understood and accepded the",
+    "TERMS": "Terms of Sale",
+    "AND": "and",
+    "Privacy": "Privacy Policy.",
+    "ALL": "See All",
+    "PAY": "PAY NOW",
+    "CONGRATULATIONS": "CONGRATULATIONS ",
+    "bought": "You just bought ",
+    "earned": "You also earned "
+  },
+  "WITHDRAW": {
+    "WINDROW": "WINDROW KNKO TOKENS",
+    "SCAN": "SCAN QR CODE INTEAD",
+    "CONFIRM": "CONFIRM TRANSFER",
+    "SENDING": "YOU ARE SENDING",
+    "TO_WALLET": "TO YOUR ETH WALLET",
+    "Warning": "Warning!",
+    "TEXT_BOT1": "By pressing 'CONFIRM TRANSFER' you undestund that the transactios is",
+    "Definitive": " definitive ",
+    "TEXT_BOT2": "and cannot be reverted. You will not be able to send KNKO tokens back to this platform. Only onece the Kaenko App will be available in 2019. You will be able to transferagain your KNKO tokens to our network.",
+    "SEND": "SEND KNKO TO YOUR ETH WALLET",
+    "YOUR_WALLET": "YOUR ETH WALLET"
+
+  },
+  "REFERRALS": {
+    "MY_REFERALS": "MY REFERALS",
+    "ERNED": "ERNED THIS MONTH",
+    "TOTAL_REFERRALS": "TOTAL EARNED BY REFERRALS",
+    "FullName": "Full Name",
+    "Username": "Username",
+    "AFFLIATES": "ALL AFFLIATES",
+    "LINK": "MY AFFLIATE LINK"
+  },
+  "SETTINGS": {
+    "ChangePassword": "Change Password",
+    "Verification": "Enable 2-Step Verification",
+    "NUMBER": "MOBIL NUMBER*",
+    "CODE": "ENTER CODE RECEIVED BY SMS*",
+    "TEXT_BOT": "Protect your Account by enabling on extra layer of veryfication."
+  },
+  "MY_PROFILE": {
+    "Details": "Personal Details",
+    "NAME": "FULL NAME*",
+    "USERNAME": "USERNAME*",
+    "NATIONALITY": "COUNTRY OF NATIONALITY*",
+    "STREET": "ADDRESS ( STREET NAME, DOOR, FLOOR, APT )*",
+    "PROVINCE": "PROVINCE",
+    "CITY": "CITY*",
+    "COUNTRY": "COUNTRY*",
+    "TEXT_BOT": "To confirm your Address, please attach the document in jpj., png., pdf format. We accept either utility bill or bank statement whith your address and full name on it, no older than 3 month.",
+    "Address": "Home Address",
+    "YOU": "Your"
+  },
+  "FOOTER": {
+    "Use": "Terms of Use",
+    "Policy": "Privacy Policy",
+    "Sale": "Terms of Sale*"
+  }
+}

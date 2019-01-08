@@ -1,0 +1,157 @@
+<div *ngIf="!showCongratulation" class="main-wrap">
+  <div class="left-content">
+    <h1 class="main-caption">
+        {{ 'BY_KNKO.PURCHASE_TOKENS' | translate }}
+    </h1>
+      <div class="min-invest-warp min-invest-warp-response">
+          {{ 'BY_KNKO.MINIMUM_INVEST' | translate }}: <span>€100 <span>{{ 'BY_KNKO.equivalent' | translate }}</span></span>
+      </div>
+      <div  class="input-wrap">
+        <span *ngIf="!switch" class="lable-input">
+          PAY
+        </span>
+        <span *ngIf="switch" class="lable-input">
+          GET
+        </span>
+        <input class="input-token number" type="text" [(ngModel)]="buytokeninfo.buy_token" type="number">
+        <div *ngIf="!switch" (click)="showDropdawnMoney = !showDropdawnMoney" class="token-lable-wrap" style="position:relative">
+          <span>
+            {{monySelected}}
+            <img src="assets\img\down-arrow-response.png" alt="">
+
+          </span>
+          <div  *ngIf="showDropdawnMoney" class="dropdawn-money">
+            <div *ngIf="monySelected != 'USD'" (click) = "monySelected = 'USD'">USD</div>
+            <div *ngIf="monySelected != 'BTC'" (click) = "monySelected = 'BTC'">BTC</div>
+            <div *ngIf="monySelected != 'ETH'" (click) = "monySelected = 'ETH'">ETH</div>
+            <div *ngIf="monySelected != 'EUR'" (click) = "monySelected = 'EUR'">EUR</div>
+          </div>
+        </div>
+
+        <div *ngIf="switch" class="token-lable-wrap">
+          <span style="margin-right: 7px;">
+            KNKO
+          </span>
+        </div>
+
+      </div>
+      <div class="arow-wrap">
+        <span class="switch-btn" (click)="switch = !switch"></span>
+
+        <object class="arow-top" data="assets\svg\arrow-top.svg" type="image/svg+xml"></object>
+
+      </div>
+      <div class="input-wrap">
+        <span *ngIf="!switch" class="lable-input">
+          GET
+        </span>
+        <span *ngIf="switch" class="lable-input">
+          PAY
+        </span>
+        <input class="input-token input-knko number" type="text" [(ngModel)]="buytokeninfo.sale_euro" type="number">
+        <div *ngIf="!switch" class="token-lable-wrap">
+          <span style="margin-right: 7px;">
+            KNKO
+          </span>
+        </div>
+
+        <div *ngIf="switch" (click)="showDropdawnMoney = !showDropdawnMoney" class="token-lable-wrap" style="position:relative">
+          <span>
+            {{monySelected}}
+            <img src="assets\img\down-arrow-response.png" alt="">
+
+          </span>
+          <div  *ngIf="showDropdawnMoney" class="dropdawn-money">
+            <div *ngIf="monySelected != 'USD'" (click) = "monySelected = 'USD'">USD</div>
+            <div *ngIf="monySelected != 'BTC'" (click) = "monySelected = 'BTC'">BTC</div>
+            <div *ngIf="monySelected != 'ETH'" (click) = "monySelected = 'ETH'">ETH</div>
+            <div *ngIf="monySelected != 'EUR'" (click) = "monySelected = 'EUR'">EUR</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="add-wrap">
+        <div>
+            {{ 'BY_KNKO.PayWith' | translate }}
+        </div>
+        <button>
+            {{ 'BY_KNKO.AddNew' | translate }}
+        </button>
+      </div>
+     <div class="card-wrap-outer-response">
+        <div class="card-wrap-outer" >
+            <div class="card-wrap" (click)="showDropdawnAddNew = !showDropdawnAddNew">
+              <div class="logo-card-wrap">
+                <img src="assets\img\VISA.png" alt="">
+              </div>
+              <div>
+                <div class="card-number">XXXX XXXX XXXX 1452</div>
+                <div class="name">Jake Snapseed - EUR</div>
+              </div>
+            </div>
+            <div class="card-change-wrap">
+                <img alt="" class="arrow" src="assets\img\arrow-change-card.png">
+                <img alt="" class="arrow arrow-bot" src="assets\img\arrow-change-card.png">
+            </div>
+          <div class="checkbox-warp-response">
+
+            <button  class="button" (click)="active = !active" [ngClass]="{'enable' : active}"></button>
+          </div>
+          </div>
+          <div *ngIf="showDropdawnAddNew" class="dropdawn-add-new">
+            <i class="fas fa-plus-circle add-new-icon"></i>
+            Add a new account
+          </div>
+     </div>
+
+    <div class="see-all-response">
+      {{ 'BY_KNKO.ALL' | translate }} (<span>+5</span>)
+    </div>
+      <div class="btn-by-wrap">
+        <!-- <button class="button pay-dasktop"  (click)="showCongratulation = true"> -->
+        <button class="button pay-dasktop"  (click)="buytoken()">
+            {{ 'BY_KNKO.BUY_NOW' | translate }}
+        </button>
+        <button class="button pay-response">
+            {{ 'BY_KNKO.BUY_NOW' | translate }}
+        </button>
+      </div>
+      <div class="text-danger" *ngIf="showError">{{errorMsg.message}}</div>
+
+    <p class="text-bot text-bot-response">
+      {{ 'BY_KNKO.TEXT_BOT' | translate }}
+      <span class="terms">Terms of Sale</span>
+      {{ 'BY_KNKO.AND' | translate }}
+      <span class="privacy">{{ 'BY_KNKO.Privacy' | translate }}</span>.
+    </p>
+  </div>
+  <div class="right-content">
+    <div class="buying-caption">{{ 'BY_KNKO.YOU_BUYING' | translate }}</div>
+    <div class="knko-value-captio">{{buytokeninfo.sale_euro}} KNKO</div>
+    <div class="per-knko-caption">@ €0.01 {{ 'BY_KNKO.PER' | translate }} KNKO</div>
+    <div class="img-group-wrap">
+      <!-- <img src="assets\svg\buyknko.svg" alt=""> -->
+      <object data="assets\svg\buyknko.svg" type="image/svg+xml">
+
+      </object>
+    </div>
+    <div class="referal-id-wrap">
+      <div style="color: #2d69cb;">
+        REFERRED BY
+      </div>
+      <div style="color: #6f797a; font-weight: 200;">
+       <input type="text" placeholder="jack_huston21442" id="referredid-by">
+      </div>
+    </div>
+    <div class="min-invest-warp">
+        {{ 'BY_KNKO.MINIMUM_INVEST' | translate }}: <span>€100</span>
+    </div>
+    <p class="text-bot">
+        {{ 'BY_KNKO.TEXT_BOT' | translate }}
+        <span class="terms">Terms of Sale</span>
+        {{ 'BY_KNKO.AND' | translate }}
+        <span class="privacy">{{ 'BY_KNKO.Privacy' | translate }}</span>.
+    </p>
+  </div>
+</div>
+<app-congratulations *ngIf="showCongratulation"></app-congratulations>

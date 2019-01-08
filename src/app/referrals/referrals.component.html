@@ -1,0 +1,401 @@
+<div class="head-content">
+  <div class="box-top" (click)="showTable = 'MyReferrals'" [ngClass]="{'active-box': showTable === 'MyReferrals'}">
+    <p class="head-box">{{ 'REFERRALS.MY_REFERALS' | translate }}</p>
+    <p class="content-box">
+        {{refferals['My referrals (count transactions)']}}
+      <img class="img-active" style="width: 25px;" alt="" src="assets\img\REFERRALS-active.png">
+      <img class="img-inctive" style="width: 25px;" alt="" src="assets\img\REFERRALS.png">
+
+    </p>
+    <p class="knko">
+
+    </p>
+    <p class="coment">
+      <!-- *based on current token sale price -->
+    </p>
+
+  </div>
+  <div class="box-top">
+    <p class="head-box">{{ 'REFERRALS.ERNED' | translate }}</p>
+    <p class="content-box">
+      0.00
+    </p>
+    <p class="knko">
+      KNKO
+    </p>
+    <p class="coment">
+      <!-- *based on current token sale price -->
+    </p>
+  </div>
+  <div class="box-top " style="margin-right: 0;" (click)="showTable = 'TotalReferrals'" [ngClass]="{'active-box': showTable === 'TotalReferrals'}">
+    <p class="head-box">{{ 'REFERRALS.TOTAL_REFERRALS' | translate }}</p>
+    <p class="content-box">
+        {{refferals["Total earned (wallet amount + wallet bonus)"]}}
+    </p>
+    <p class="knko bonus">
+      KNKO . IN BONUS
+    </p>
+    <p class="coment">
+      <!-- *based on current token sale price -->
+    </p>
+    <!-- <button class="button new-btn"> NEW</button> -->
+  </div>
+ </div>
+
+ <div class="body-content" *ngIf = "showTable === 'TotalReferrals'">
+  <div class="body-content-head">
+    <div class="referals-value-wrap">
+      <div class="caption-right">
+          {{ 'REFERRALS.TOTAL_REFERRALS' | translate }}
+      </div>
+
+    </div>
+    <div class="referal-link" (click)="copytext()">
+      <input id="copytext" value="kaenko.com/{{userservice.username}}"  style="border: 0">
+
+
+      <button class="button">
+        {{copystatus}}
+      </button>
+    </div>
+    <div class="scroll-wrap">
+        <span (click)="scrollDown()">{{ 'HOME.SCROLL' | translate }}  </span>
+        <img (click)="showSettings = !showSettings" src="assets\img\SETTINGS.png" alt="">
+        <div *ngIf="showSettings" class="dropdawn-settings">
+          <div>
+            Export as xslx
+          </div>
+          <div>
+            Save as PDF
+          </div>
+        </div>
+      </div>
+  </div>
+  <div class="caption-row row-table">
+    <div class="column-1">
+        {{ 'HOME.Date' | translate }}
+    </div>
+    <div class="column-2">
+        {{ 'HOME.Type' | translate }}
+    </div>
+    <div class="column-3">
+        {{ 'HOME.From' | translate }}
+    </div>
+    <div class="column-4">
+        {{ 'HOME.Amount' | translate }}
+    </div>
+    <div class="column-5">
+        {{ 'HOME.Status' | translate }}
+    </div>
+    <div class="column-6">
+        {{ 'HOME.Balance' | translate }}
+    </div>
+  </div>
+     <div class="scroll-table-body">
+      <div class="row-table" *ngFor="let trans of refferals['Transactions (last transactions)']; let i = index">
+        <div class="column-1">
+            {{trans["transaction_date"]}}
+        </div>
+        <div class="column-2">
+          {{trans["transaction_type"]}}
+        </div>
+        <div class="column-3">
+          {{trans["owner"]}}
+        </div>
+        <div class="column-4">
+          <div class="amount-value">
+              {{trans["transaction_amount"]}} KNKO
+          </div>
+        </div>
+        <div class="column-5">
+          <div class="status-value active">
+            {{trans["transaction_status"]}}
+          </div>
+        </div>
+        <div class="column-6 blue-style">
+          {{trans["balance"]}} KNKO
+        </div>
+      </div>
+     </div>
+
+ </div>
+
+ <div class="body-content" *ngIf = "showTable === 'MyReferrals'">
+  <div class="body-content-head">
+    <div class="referals-value-wrap">
+      <div class="caption-right">
+          {{ 'REFERRALS.MY_REFERALS' | translate }} <span> (70)</span>
+      </div>
+    </div>
+    <div class="referal-link" (click)="copytext()">
+      <span>
+        kaenko.com/bibahadid92
+      </span>
+      <button class="button">
+        COPY
+      </button>
+    </div>
+      <div class="scroll-wrap">
+          <span (click)="scrollDown()">{{ 'HOME.SCROLL' | translate }}  </span>
+          <img (click)="showSettings = !showSettings" src="assets\img\SETTINGS.png" alt="">
+          <div *ngIf="showSettings" class="dropdawn-settings">
+              <div>
+                  Export as xslx
+              </div>
+              <div>
+                  Save as PDF
+              </div>
+          </div>
+      </div>
+  </div>
+  <div class="caption-row row-table">
+    <div class="column-1">
+
+    </div>
+    <div class="column-2">
+        {{ 'REFERRALS.FullName' | translate }}
+    </div>
+    <div class="column-3">
+        {{ 'REFERRALS.Username' | translate }}
+    </div>
+    <div class="column-4">
+        {{ 'HOME.Amount' | translate }}
+    </div>
+    <div class="column-5">
+        {{ 'HOME.Status' | translate }}
+    </div>
+    <div class="column-6">
+        {{ 'HOME.Balance' | translate }}
+    </div>
+  </div>
+    <div style="height: 260px;display: flex;justify-content: center;align-items: center;color: #888;font-size: 20px;font-weight: 600;">
+        There is no transactions to show at the moment.
+    </div>
+ </div>
+
+<div class="response-content">
+  <div class="head-response">
+    <div class="left-head-response" (click)="showContent = 'AffliateMobil'" [ngClass]="{'active-box-response': showContent === 'AffliateMobil'}">
+      <div class="head-value">
+        70
+      </div>
+      <div class="knko">
+          {{ 'REFERRALS.AFFLIATES' | translate }}
+      </div>
+    </div>
+    <div class="knko" style="position: relative; left: -15px;">
+      {{ 'REFERRALS.LINK' | translate }}
+    </div>
+    <div class="right-head-response" (click)="showContent = 'ShowTotalRefMobile'" [ngClass]="{'active-box-response': showContent === 'ShowTotalRefMobile'}">
+      <div class="head-value">
+        +59K
+      </div>
+      <div class="knko">
+        IN BONUS
+      </div>
+    </div>
+  </div>
+  <div class="referal-link-wrap">
+    <div class="referal-link" (click)="copytext()" >
+      <span class="referal-link-text">
+        kaenko.com/bibahadid92
+      </span>
+      <button class="button">
+        COPY
+      </button>
+    </div>
+  </div>
+  <div class="body-response-wrap" *ngIf = "showContent === 'AffliateMobil'">
+    <div class="body-content-response">
+      <div class="scroll-tab scroll-tab-affliates">
+        <div>Inactive</div>
+        <div>Active</div>
+        <div class="active-tab">All Referrals</div>
+        <div>Top Buyers</div>
+      </div>
+    </div>
+    <div class="content-response">
+        <div class="head-content-response center">
+          <div class="time-value">
+            A
+          </div>
+          <div class="knko-wrap-right blue-style-text">
+            TOTAL KNKO
+            <div class="knko-value-blue-style status-value">
+              123 505
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="content-response">
+        <div class="head-content-response">
+          <div class="time-value">
+            <img style="width: 50px; border-radius: 50%; margin-right: 15px;" src="assets\img\favicon.png" alt="">
+            <div class="knko-value-inside-wrap">
+              <div class="knko-value-inside">
+                Anna Hendricks
+              </div>
+              <div class="time-value-inside">
+                Active
+              </div>
+            </div>
+          </div>
+          <div class="knko-wrap-right knko-value-right">
+            + 2050 KNKO
+          </div>
+        </div>
+    </div>
+    <div class="content-response">
+      <div class="head-content-response">
+        <div class="time-value">
+          <img style="width: 50px; border-radius: 50%; margin-right: 15px;" src="assets\img\favicon.png" alt="">
+          <div class="knko-value-inside-wrap">
+            <div class="knko-value-inside">
+              Anna Hendricks
+            </div>
+            <div class="time-value-inside">
+              Active
+            </div>
+          </div>
+        </div>
+        <div class="knko-wrap-right knko-value-right">
+          + 2050 KNKO
+        </div>
+      </div>
+  </div>
+  <div class="content-response">
+    <div class="head-content-response">
+      <div class="time-value">
+        <img style="width: 50px; border-radius: 50%; margin-right: 15px;" src="assets\img\favicon.png" alt="">
+        <div class="knko-value-inside-wrap">
+          <div class="knko-value-inside">
+            Anna Hendricks
+          </div>
+          <div class="time-value-inside">
+            Active
+          </div>
+        </div>
+      </div>
+      <div class="knko-wrap-right knko-value-right">
+        + 2050 KNKO
+      </div>
+    </div>
+  </div>
+    <div class="content-response">
+        <div class="head-content-response center">
+          <div class="time-value">
+            B
+          </div>
+          <div class="knko-wrap-right">
+            KNKO
+            <div class="knko-value-gray-style status-value">
+              123 505
+            </div>
+          </div>
+        </div>
+    </div>
+    <div class="content-response">
+      <div class="head-content-response">
+        <div class="time-value">
+          <img style="width: 50px; border-radius: 50%; margin-right: 15px;" src="assets\img\favicon.png" alt="">
+          <div class="knko-value-inside-wrap">
+            <div class="knko-value-inside">
+              Anna Hendricks
+            </div>
+            <div class="time-value-inside">
+              Active
+            </div>
+          </div>
+        </div>
+        <div class="knko-wrap-right knko-value-right">
+          + 2050 KNKO
+        </div>
+      </div>
+  </div>
+  <div class="content-response">
+    <div class="head-content-response">
+      <div class="time-value">
+        <img style="width: 50px; border-radius: 50%; margin-right: 15px;" src="assets\img\favicon.png" alt="">
+        <div class="knko-value-inside-wrap">
+          <div class="knko-value-inside">
+            Anna Hendricks
+          </div>
+          <div class="time-value-inside">
+            Active
+          </div>
+        </div>
+      </div>
+      <div class="knko-wrap-right knko-value-right">
+        + 2050 KNKO
+      </div>
+    </div>
+  </div>
+  <div class="content-response">
+    <div class="head-content-response">
+      <div class="time-value">
+        <img style="width: 50px; border-radius: 50%; margin-right: 15px;" src="assets\img\favicon.png" alt="">
+        <div class="knko-value-inside-wrap">
+          <div class="knko-value-inside">
+            Anna Hendricks
+          </div>
+          <div class="time-value-inside">
+            Active
+          </div>
+        </div>
+      </div>
+      <div class="knko-wrap-right knko-value-right">
+        + 2050 KNKO
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <div class="body-response-wrap"  *ngIf = "showContent === 'ShowTotalRefMobile'">
+    <div class="knko-value-top">
+      <p>+ 59 600</p>
+      <p>KNKO . IN BONUS</p>
+    </div>
+    <div class="body-content-response">
+      <div class="scroll-tab">
+          <div>January</div>
+          <div>February</div>
+          <div>March</div>
+          <div>This month</div>
+          <div>All time</div>
+      </div>
+    </div>
+    <div *ngFor="let trans of grouptedHistorytrans; let i = index">
+      <div class="content-response">
+        <div class="head-content-response center">
+          <div class="time-value">
+            {{trans.key}}
+          </div>
+          <div class="knko-wrap-right blue-style-text">
+            TOTAL KNKO
+            <div class="knko-value-blue-style status-value">
+              123 505
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="content-response"  *ngFor="let item of trans['values']; let i = index">
+          <div class="head-content-response">
+            <div class="time-value">
+              <img style="width: 50px; border-radius: 50%; margin-right: 15px;" src="assets\img\favicon.png" alt="">
+              <div class="knko-value-inside-wrap">
+                <div class="knko-value-inside">
+                  {{item['owner']}}
+                </div>
+                <div class="time-value-inside">
+                  3:49 . <span>Bonus 5%</span>
+                </div>
+              </div>
+            </div>
+            <div class="knko-wrap-right knko-value-right">
+              {{item['transaction_amount']}} KNKO
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>

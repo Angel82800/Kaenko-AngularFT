@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,400i,500,600,700');
+
+.button{
+    border: none;
+    outline: none;
+    background: none;
+}
+.main-wrap{
+    font-family: 'Poppins';
+}
+html{
+   background: rgb(246, 247, 251);
+}
+body{
+    min-height: 100vh;
+}
+#sdas > svg{
+    fill: steelblue;
+}
+@media screen and (min-width: 980px) {
+    .box-top, .body-content{
+        border: 1px solid #e2e8ee;
+    }
+}

@@ -1,0 +1,98 @@
+<div class="profile-edit-content" *ngIf="userinfo">
+
+  <div class="head-inside-left-wrap">
+    <h1 class="main-caption margin ">
+      <span class="mobil-elemtnt"> {{ 'MY_PROFILE.YOU' | translate }} </span> {{ 'MY_PROFILE.Details' | translate }}
+    </h1>
+    <button class="button btn-settings verify-btn" (click)="saveProfile()">
+        Save Profile
+      </button>
+  </div>
+  <hr/>
+
+  <div class="profile-edit">
+    <div class="profile-edit-left">
+      <div class="personal-detail-title">
+        <div class="lock-icon">
+          <img src="assets/img/lock.png">
+        </div>
+        <div class="personal-detail-description">
+          <h4>{{ 'MY_PROFILE.Details' | translate }}</h4>
+          <div>{{'MY_PROFILE.PERSONALSCURITYMSG' | translate}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="profile-edit-right">
+        <div class="lable padding-left">
+            {{ 'MY_PROFILE.USERNAME' | translate }}
+        </div>
+        <div class="input-wrap">
+            <input placeholder="Username" type="text" disabled [(ngModel)]="userinfo.username">
+        </div>
+
+        <div class="lable padding-left">
+            {{ 'MY_PROFILE.FULLNAME' | translate }}
+        </div>
+        <div class="input-wrap">
+            <input placeholder="Full Name" type="text" [(ngModel)]="userinfo.full_name">
+        </div>
+
+        <div class="lable padding-left">
+            {{ 'MY_PROFILE.EMAIL' | translate }}
+        </div>
+        <div class="input-wrap">
+            <input placeholder="Email" type="text" [(ngModel)]="userinfo.email">
+        </div>
+
+        <div class="lable padding-left">
+            {{ 'MY_PROFILE.STREETADDRESS' | translate }}
+        </div>
+        <div class="input-wrap">
+            <input placeholder="Street address" type="text" [(ngModel)]="userinfo.address_line">
+        </div>
+
+        <!-- <div class="lable padding-left">
+            {{ 'MY_PROFILE.STREETADDRESS2' | translate }}
+        </div>
+        <div class="input-wrap">
+            <input placeholder="Street address2" type="text">
+        </div> -->
+
+        <div class="lable padding-left">
+            {{ 'MY_PROFILE.CITY1' | translate }}
+        </div>
+        <div class="input-wrap">
+            <input placeholder="City" type="text"  [(ngModel)]="userinfo.city">
+        </div>
+
+        <div class="lable padding-left">
+            {{ 'MY_PROFILE.POSTALCODE' | translate }}
+        </div>
+        <div class="input-wrap">
+            <input placeholder="Postal Code" type="text" class="postal-code-input"  [(ngModel)]="userinfo.zipcode">
+        </div>
+
+        <div class="lable padding-left">
+            {{ 'MY_PROFILE.COUNTRY1' | translate }}
+        </div>
+        <div class="input-wrap">
+            <input placeholder="Country" type="text" [(ngModel)]="userinfo.country">
+        </div>
+
+        <div class="lable padding-left">
+            {{ 'MY_PROFILE.PHONE' | translate }}
+        </div>
+        <div class="input-wrap">
+            <input placeholder="Phone Number" type="text"  [(ngModel)]="userinfo.phone">
+        </div>
+
+        <div class="lable padding-left">
+            {{ 'MY_PROFILE.NATIONALITY1' | translate }}
+        </div>
+        <div class="input-wrap">
+            <input placeholder="Nationality" type="text" [(ngModel)]="userinfo.nationality">
+        </div>
+    </div>
+  </div>
+</div>

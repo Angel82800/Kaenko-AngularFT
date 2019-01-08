@@ -1,0 +1,109 @@
+.main-content{
+    padding-bottom: 115px;
+    border: 1px solid #e2e8ee;
+    border-bottom: 5px solid rgba(1, 121, 233, 1);
+    background: white;
+    border-radius: 5px;
+    padding: 50px;
+    padding-top: 30px;
+    margin-top: 25px;
+}
+.img-wrap > object{
+    width : 200px;
+}
+.img-wrap{
+    text-align: center;
+    margin-top: 40px;
+    padding-bottom: 10px;
+}
+.main-content{
+    display: block !important;
+
+}
+.main-content-response{
+    display: none !important;
+}
+.blue-style {
+    color: rgb(0, 110, 231);
+}
+.kpoints-text{
+    font-weight: 400;
+    color: #737F7F;
+    text-align: left;
+    font-size:14px;
+    margin-top: 30px;
+}
+.bought{
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #a1abb6;
+    margin-top: 10px;
+}
+.earned{
+    text-align: center;
+    font-size: 18px;
+    letter-spacing: 1px;
+    color: #a1abb6;
+    margin-top: 10px;
+}
+
+@media screen and (max-width: 980px){
+    .img-wrap > object{
+        width : 180px;
+    }
+
+    .head-value {
+        font-size: 20px;
+        margin-bottom: 6px;
+        margin-top: 24px;
+    }
+    .knko {
+        margin-bottom: 0;
+        text-align: center;
+        color: rgba(164, 171, 181, 1);
+        font-family: 'Poppins';
+        font-size: 15px;
+        font-weight: 500;
+        margin-bottom: 15px;
+    }
+    .head-response{
+        display: flex;
+        justify-content: space-between;
+        padding-left: 40px;
+        padding-right: 40px;
+        align-items: flex-end;
+    }
+    .main-content{
+        display: none !important;
+
+    }
+    .main-content-response{
+        display: block !important;
+    }
+    .kpoints-text{
+       padding: 10px;
+        margin-top: 30px;
+    }
+}
+
+@media screen and (max-width: 500px){
+    .main-content{
+        display: none !important;
+
+    }
+    .main-content-response{
+        display: block !important;
+    }
+    .head-response{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .head-response{
+        padding-left: 0;
+        padding-right: 0;
+    }
+    div.head-response > div.right-head-response > div.knko{
+        margin-left: 15px;
+    }
+}
