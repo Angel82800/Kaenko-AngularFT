@@ -7,7 +7,7 @@ This project is built by Angular CLI 5.2.0.
 
 ### Screenshots
 
-# (./imgs/home.png)
+![Home Page](./imgs/home.png)
 
 ### Prerequisites
 
