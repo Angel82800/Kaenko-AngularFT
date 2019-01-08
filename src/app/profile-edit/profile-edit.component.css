@@ -7,7 +7,6 @@
   text-align: center;
 }
 .input-wrap> input{
-  /* margin-top: 10px; */
   border: none;
   border: 1px solid #b5c0c5;
   width: 100%;
@@ -24,7 +23,6 @@ input[type="text"]{
 
 .left-content, .right-content, .profile-edit-content{
   width: 80%;
-  /* margin-right: 50px; */
   margin: auto;
   border: 1px solid #e2e8ee;
   border-bottom: 5px solid rgba(1, 121, 233, 1);
